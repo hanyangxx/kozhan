@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;/*要设置的边框和边距包含在宽度内*/
+}
+
+body {
+  font-family: sans-serif;
+  display: flex;/*弹性盒子布局，主轴*/
+  align-items: center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+}
+
+.panel {
+  background-size: cover;/*把图片大小缩小*/
+  background-position: center;/*给背景图设定位置：居中*/
+  background-repeat: no-repeat;/*表示不平铺，默认*/
+  height: 80vh;
+  border-radius: 50px;/*圆角效果，长度值*/
+  color: #fff;
+  cursor: pointer;/*鼠标样式*/
+  flex: 0.5;/*放大盒子的比例*/
+  margin: 10px;
+  position: relative;
+  -webkit-transition: all 700ms ease-in;/*过度*/
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;/*基于浏览器的定位*/
+  bottom: 20px;
+  left: 20px;
+  margin:0;
+  opacity: 0;
+}
+
+.panel.active {
+  flex: 5;
+}
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media (max-width:480px) {
+  .container {
+    width: 100vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
